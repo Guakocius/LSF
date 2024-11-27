@@ -11,7 +11,7 @@ public class App extends JFrame {
 
     public App() {
 
-        setTitle("Hello World");
+        setTitle("LSF");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
         setLayout(new FlowLayout());
@@ -22,28 +22,24 @@ public class App extends JFrame {
         panel.setLayout(new GridLayout(1, 5, 10, 10));
         updateWeek();
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new BorderLayout());
-
         JButton prevWeek = new JButton("←");
         prevWeek.addActionListener(e -> {
             currentMonday = currentMonday.minusWeeks(1);
             updateWeek();
         });
-        buttonPanel.add(prevWeek, BorderLayout.WEST);
+
 
         JButton nextWeek = new JButton("→");
         nextWeek.addActionListener(e -> {
             currentMonday = currentMonday.plusWeeks(1);
             updateWeek();
         });
-        buttonPanel.add(nextWeek, BorderLayout.EAST);
 
+        add(prevWeek, BorderLayout.WEST);
         add(panel, BorderLayout.CENTER);
-        add(buttonPanel, BorderLayout.SOUTH);
-
         JScrollPane scrollPane = new JScrollPane(panel);
         add(scrollPane, BorderLayout.CENTER);
+        add(nextWeek, BorderLayout.EAST);
 
     }
 
