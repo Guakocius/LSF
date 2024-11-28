@@ -1,0 +1,4 @@
+.root {
+    -fx-base: #ececec;
+    -fx-background: derive(-fx-base,26.4%);
+}
