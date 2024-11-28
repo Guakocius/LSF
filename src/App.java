@@ -36,20 +36,20 @@ public class App extends JFrame {
         });
 
         JPanel clockPanel = new JPanel();
-        clockPanel.setLayout(new GridLayout(21, 1, 10, 10));
+        clockPanel.setLayout(new GridLayout(15, 1, 10, 10));
         JLabel clockLabel = new JLabel();
         for(int i = 7; i <= 19; i++) {
-            while(i == 7) {
-                clockLabel.setText("Zeit");
-                clockPanel.add(clockLabel);
-                clockLabel.setText("vor 8");
-                clockPanel.add(clockLabel);
+            if(i == 7) {
+                clockPanel.add(new JLabel("Zeit"));
+                clockPanel.add(new JLabel("vor 8"));
                 i++;
 
             }
             clockPanel.add(new JLabel(String.valueOf(i)));
 
         }
+        clockLabel.setText("ab 20");
+        clockPanel.add(clockLabel);
         add(clockPanel);
 
         add(prevWeek, BorderLayout.WEST);
@@ -59,7 +59,6 @@ public class App extends JFrame {
         add(nextWeek, BorderLayout.EAST);
 
     }
-
 
     private void updateWeek() {
         panel.removeAll();
