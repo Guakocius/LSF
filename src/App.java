@@ -3,14 +3,24 @@ import java.awt.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
+
+import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 
 public class App extends JFrame {
+
     private LocalDate currentMonday;
     JPanel panel;
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
 
     public App() {
+        StackPane root = new StackPane();
+        Scene scene = new Scene(root, 500, 500);
 
+        scene.getStylesheets().
+                add(Objects.requireNonNull(getClass().
+                        getResource("./dark-mode.css")).toExternalForm());
         setTitle("LSF");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
