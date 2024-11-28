@@ -35,6 +35,23 @@ public class App extends JFrame {
             updateWeek();
         });
 
+        JPanel clockPanel = new JPanel();
+        clockPanel.setLayout(new GridLayout(21, 1, 10, 10));
+        JLabel clockLabel = new JLabel();
+        for(int i = 7; i <= 19; i++) {
+            while(i == 7) {
+                clockLabel.setText("Zeit");
+                clockPanel.add(clockLabel);
+                clockLabel.setText("vor 8");
+                clockPanel.add(clockLabel);
+                i++;
+
+            }
+            clockPanel.add(new JLabel(String.valueOf(i)));
+
+        }
+        add(clockPanel);
+
         add(prevWeek, BorderLayout.WEST);
         add(panel, BorderLayout.CENTER);
         JScrollPane scrollPane = new JScrollPane(panel);
@@ -42,6 +59,7 @@ public class App extends JFrame {
         add(nextWeek, BorderLayout.EAST);
 
     }
+
 
     private void updateWeek() {
         panel.removeAll();
